@@ -10,3 +10,4 @@ HCL scripts for setting up a k8s cluster
 * Set up for Batch: https://github.com/toniher/terraform-aws-computation
 * https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
 * https://medium.com/@bm54cloud/deploy-a-kubernetes-cluster-with-terraform-b5bf6a7a369a
+* eks_cluster resource: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster
