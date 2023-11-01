@@ -1,6 +1,10 @@
 # terraform-k8s
 HCL scripts for setting up a k8s cluster
 
+## TODO
+
+* Ensure the least privilege approach once everything works
+
 ## References
 
 * Set up for Batch: https://github.com/toniher/terraform-aws-computation

@@ -61,6 +61,7 @@ variable "repo_url" {
 
 
 // We assume the same subnets for the different clusters here
+// TODO: Consider VPC module here
 variable "batch_subnets" {
   type    = list(string)
   default = ["subnet-8a280df7", "subnet-c54d6588", "subnet-b85ab5d2"]

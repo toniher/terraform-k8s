@@ -172,7 +172,7 @@ resource "aws_iam_role" "ClusterFleetRole" {
 
 }
 
-
+# Profiles
 resource "aws_iam_instance_profile" "Multiprofile" {
   name = "Multiprofile-${random_string.rand.result}"
   role = aws_iam_role.Multiaccess.name
@@ -183,7 +183,6 @@ resource "aws_iam_instance_profile" "ComputeInstanceProfile" {
   role = aws_iam_role.ComputeInstanceRole.name
 }
 
-
 // Policy attachments for EC2 entrypoint and Batch -> Some cleaning needed
 resource "aws_iam_policy_attachment" "AWSBatchServiceRole-policy-attachment" {
   name       = "AWSBatchServiceRole-policy-attachment-${random_string.rand.result}"
@@ -193,6 +192,7 @@ resource "aws_iam_policy_attachment" "AWSBatchServiceRole-policy-attachment" {
   roles      = [aws_iam_role.ClusterRole.name, aws_iam_role.Multiaccess.name]
 }
 
+# TODO: least privilege
 resource "aws_iam_policy_attachment" "CloudWatchLogsFullAccess-policy-attachment" {
   name       = "CloudWatchLogsFullAccess-policy-attachment-${random_string.rand.result}"
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
@@ -201,6 +201,7 @@ resource "aws_iam_policy_attachment" "CloudWatchLogsFullAccess-policy-attachment
   roles      = [aws_iam_role.ClusterRole.name, aws_iam_role.Multiaccess.name]
 }
 
+# TODO: least privilege
 resource "aws_iam_policy_attachment" "AmazonEC2FullAccess-policy-attachment" {
   name       = "AmazonEC2FullAccess-policy-attachment-${random_string.rand.result}"
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
@@ -209,6 +210,7 @@ resource "aws_iam_policy_attachment" "AmazonEC2FullAccess-policy-attachment" {
   roles      = [aws_iam_role.Multiaccess.name]
 }
 
+# TODO: To remove 
 resource "aws_iam_policy_attachment" "AWSBatchServiceEventTargetRole-policy-attachment" {
   name       = "AWSBatchServiceEventTargetRole-policy-attachment-${random_string.rand.result}"
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceEventTargetRole"
@@ -217,6 +219,7 @@ resource "aws_iam_policy_attachment" "AWSBatchServiceEventTargetRole-policy-atta
   roles      = [aws_iam_role.Multiaccess.name]
 }
 
+# TODO: least privilege
 resource "aws_iam_policy_attachment" "AmazonS3FullAccess-policy-attachment" {
   name       = "AmazonS3FullAccess-policy-attachment-${random_string.rand.result}"
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
